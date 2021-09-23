@@ -1,13 +1,13 @@
+import os
+import time
 import speech_recognition as sr
+from gtts import gTTS
+import playsound
 
-r = sr.Recognizer()
+def speak(text):
+    tts = gTTS(text=text, lang="en")
+    filename = "speech.mp3"
+    tts.save(filename)
+    playsound.playsound(filename)
 
-with sr.Microphone() as source:
-    print("Say Something")
-    r.adjust_for_ambient_noise(source)
-    audio = r.listen(source)
-    voice_data = r.recognize_google(audio)
-    try:
-        print(f"You Said: {voice_data}")
-    except:
-        print("Could not understand")
+speak("hello Tim")
