@@ -13,6 +13,16 @@
       "responses": ["Hello Sir!", "Hello, What can I do for you"]
     },
     {
+      "tag": "create_note",
+      "patterns": [
+        "Please create a new note",
+        "New note",
+        "Create a note",
+        "I want to create a note"
+      ],
+      "responses": [""]
+    },
+    {
       "tag": "add_todo",
       "patterns": [
         "I want to add a todo",
@@ -25,6 +35,20 @@
     {
       "tag": "show_todo",
       "patterns": ["Show my todos", "What are my todos", "What is on my todo"],
+      "responses": [""]
+    },
+    {
+      "tag": "exit",
+      "patterns": [
+        "Exit",
+        "Quit",
+        "Stop",
+        "Bye",
+        "I want to quit",
+        "Goodbye",
+        "I want to exit",
+        "I have to go"
+      ],
       "responses": [""]
     }
   ]

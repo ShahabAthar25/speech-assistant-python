@@ -4,19 +4,49 @@ import speech_recognition as sr
 import pyttsx3 as tts
 import sys
 
-r = sr.Recognizer()
+recognizer = sr.Recognizer()
 
 speaker = tts.init()
 speaker.setProperty('rate', 150)
 
 todo_list = ['Go Shopping', 'Clean Room']
 
-def print_hello():
-    print("Hello")
+def create_note():
+    global recognizer
+    
+    speaker.say("What do you want to write onto your note")
+    speaker.runAndWait()
 
-mappings = {'greeting': print_hello}
+    done = False
+    
+    while not done:
+        try:
+            with sr.Microphone() as source:
+                recognizer.adjust_for_ambient_noise(source, duration=0.2)
+                audio = recognizer.listen(source)
+                
+                note = recognizer.recognize_google(audio)
+                note = note.lower()
 
-assistance = GenericAssistant('intents.json', intent_methods=mappings)
+                speaker.say("Choose a filename")
+                speaker.runAndWait()
+
+                recognizer.adjust_for_ambient_noise(source, duration=0.2)
+                audio = recognizer.listen(source)
+
+                filename = recognizer.recognize_google(audio)
+                filename = filename.lower()
+
+            with open(filename, 'w') as file:
+                file.write(note)
+                done = True
+                speaker.say(f"I successfully created the note {filename}")
+                speaker.runAndWait()
+        
+        except sr.UnknownValueError:
+            recognizer = sr.Recognizer()
+            speaker.say("I did not understand you! Please try again")
+
+
+assistance = GenericAssistant('intents.json')
 assistance.train_model()
-
-assistance.request("How are you")
