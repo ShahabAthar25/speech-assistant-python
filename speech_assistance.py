@@ -46,6 +46,49 @@ def create_note():
         except sr.UnknownValueError:
             recognizer = sr.Recognizer()
             speaker.say("I did not understand you! Please try again")
+            speaker.runAndWait()
+
+
+def add_todo():
+    global recognizer
+    
+    speaker.say("What todo do you want me to add")
+    speaker.runAndWait()
+
+    done = False
+
+    while not done:
+        try:
+            with sr.Microphone() as source:
+                recognizer.adjust_for_ambient_noise(source, duration=0.2)
+                audio = recognizer.listen(source)
+                
+                item = recognizer.recognize_google(audio)
+                item = item.lower()
+
+                todo_list.append(item)
+                done = True
+
+                speaker.say(f"Added {item} to to do list")
+                speaker.runAndWait()
+
+        except sr.UnknownValueError:
+            recognizer = sr.Recognizer()
+            speaker.say("I did not understand you! Please try again")
+            speaker.runAndWait()
+
+
+def show_todo():
+     
+     speaker.say("The following items are on your todo list")
+     for item in todo_list:
+         speaker.say(item)
+     speaker.runAndWait()
+
+
+def greeting():    
+    speaker.say("Hello What can i do for you")
+    speaker.runAndWait()
 
 
 assistance = GenericAssistant('intents.json')
