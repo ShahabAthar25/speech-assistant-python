@@ -13,13 +13,18 @@
       "responses": ["Hello Sir!", "Hello, What can I do for you"]
     },
     {
-      "tag": "",
+      "tag": "add_todo",
       "patterns": [
         "I want to add a todo",
         "add a new todo",
         "add a todo to my list",
         "new item on my todo list"
       ],
+      "responses": [""]
+    },
+    {
+      "tag": "show_todo",
+      "patterns": ["Show my todos", "What are my todos", "What is on my todo"],
       "responses": [""]
     }
   ]
