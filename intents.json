@@ -1,0 +1,26 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hey",
+        "Hello",
+        "What's Up",
+        "How is it going",
+        "Hi",
+        "Good Morning"
+      ],
+      "responses": ["Hello Sir!", "Hello, What can I do for you"]
+    },
+    {
+      "tag": "",
+      "patterns": [
+        "I want to add a todo",
+        "add a new todo",
+        "add a todo to my list",
+        "new item on my todo list"
+      ],
+      "responses": [""]
+    }
+  ]
+}

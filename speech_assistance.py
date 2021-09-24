@@ -1,13 +1,9 @@
-import os
-import time
+from neuralintents import GenericAssistant
 import speech_recognition as sr
-from gtts import gTTS
-import playsound
+import pyttsx3 as tts
+import sys
 
-def speak(text):
-    tts = gTTS(text=text, lang="en")
-    filename = "speech.mp3"
-    tts.save(filename)
-    playsound.playsound(filename)
+r = sr.Recognizer()
 
-speak("hello Tim")
+speaker = tts.init()
+speaker.setProperty('rate', 150)
