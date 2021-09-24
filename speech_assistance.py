@@ -90,6 +90,11 @@ def greeting():
     speaker.say("Hello What can i do for you")
     speaker.runAndWait()
 
+def quit():
+    speaker.say("Bye")
+    speaker.runAndWait()
+    sys.exit(0)
+
 
 assistance = GenericAssistant('intents.json')
 assistance.train_model()
