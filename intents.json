@@ -34,7 +34,12 @@
     },
     {
       "tag": "show_todo",
-      "patterns": ["Show my todos", "What are my todos", "What is on my todo"],
+      "patterns": [
+        "Show todos",
+        "Show my todos",
+        "What are my todos",
+        "What is on my todo"
+      ],
       "responses": [""]
     },
     {
