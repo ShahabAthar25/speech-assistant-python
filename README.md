@@ -1,6 +1,6 @@
 # speech-assistance-python
 
-A real-time speech assistance program made with python with the help of google-text-to-speech api, pyaudio and speech_recognition
+A real-time speech assistance program made with python with the help of google-text-to-speech api, pyaudio and speech_recognition, neuralintents and pyttsx3
 
 ## How to Run
 
