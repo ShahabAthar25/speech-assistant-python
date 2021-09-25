@@ -8,7 +8,8 @@
         "What's Up",
         "How is it going",
         "Hi",
-        "Good Morning"
+        "Good Morning",
+        "Hey what's up",
       ],
       "responses": ["Hello Sir!", "Hello, What can I do for you"]
     },
@@ -19,6 +20,8 @@
         "New note",
         "Create a note",
         "I want to create a note"
+        "Add a note right now"
+        "Add a note"
       ],
       "responses": [""]
     },
