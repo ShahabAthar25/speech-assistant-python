@@ -46,6 +46,16 @@
       "responses": [""]
     },
     {
+      "tag": "current_time",
+      "patterns": [
+        "What is the time",
+        "Can you tell me the time",
+        "What time is it",
+        "Tell me the time"
+      ],
+      "responses": [""]
+    },
+    {
       "tag": "exit",
       "patterns": [
         "Exit",

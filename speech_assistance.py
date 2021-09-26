@@ -21,7 +21,7 @@ def create_note():
     while not done:
         try:
             with sr.Microphone() as source:
-                r.adjust_for_ambient_noise(source, duration=0.2)
+                r.adjust_for_ambient_noise(source)
                 audio = r.listen(source)
                 
                 note = r.recognize_google(audio)
@@ -49,7 +49,6 @@ def create_note():
             speaker.say("I did not understand you! Please try again")
             speaker.runAndWait()
             print("try again")
-
 
 def add_todo():
     global r
