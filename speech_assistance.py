@@ -1,4 +1,5 @@
 from neuralintents import GenericAssistant
+from datetime import date, datetime
 import speech_recognition as sr
 import pyttsx3 as tts
 import sys
@@ -81,10 +82,17 @@ def add_todo():
 
 def show_todo():
      
-     speaker.say("The following items are on your todo list")
-     for item in todo_list:
-         speaker.say(item)
-     speaker.runAndWait()
+    speaker.say("The following items are on your todo list")
+    for item in todo_list:
+        speaker.say(item)
+    speaker.runAndWait()
+
+def current_time():
+     
+    now = datetime.now()
+
+    current_time = now.strftime("%H %M %S")
+    speaker.say(f"The current time is {current_time}")
 
 
 def greeting():    
@@ -101,12 +109,13 @@ mappings = {
     "create_note": create_note,
     "add_todo": add_todo,
     "show_todo": show_todo,
+    "current_time": current_time,
     "exit": quit
 }
 
 
 assistance = GenericAssistant('intents.json', intent_methods=mappings)
-assistance.load_model()
+assistance.train_model()
 
 while True:  
     try:
